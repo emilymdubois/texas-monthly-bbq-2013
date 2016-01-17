@@ -1,8 +1,7 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoiZW1pbHltZHVib2lzIiwiYSI6ImNpajBmZ2p5azAwODN1YWx6ZjJ2MjFxYmQifQ.FbCG71iC6_bjFcDqolAo0Q';
 
 var map = L.mapbox.map('map', 'emilymdubois.okd0dh8p')
-  .setView([31.38, -99], 6);
-  map.scrollWheelZoom.disable();
+  .setView([31.38, -93], 5);
 
 var bbqJoints = {
   'type': 'FeatureCollection',
@@ -61,7 +60,7 @@ var bbqJoints = {
 };
 
 for (var i = 0; i < bbqJoints.features.length; i++) {
-  bbqJoints.features[i].properties['marker-color'] = '#f86767';
+  bbqJoints.features[i].properties['marker-color'] = '#f8bba6';
   bbqJoints.features[i].properties['marker-symbol'] = 'slaughterhouse';
 };
 
@@ -78,10 +77,11 @@ geocoderControl.on('select', function(res) {
 
   var marker = res.feature;
   marker.properties['marker-symbol'] = 'star';
-  marker.properties['marker-color'] = '#3bb2d0';
+  marker.properties['marker-color'] = '#49c9f5';
+  marker.properties['description'] = res.feature.place_name;
 
-  var nearest = turf.nearest(marker, bbqJoints);
-  nearest.properties['marker-color'] = '#fbb03b';
+  var nearest = turf.nearest(marker,bbqJoints);
+  nearest.properties['marker-color'] = '#dd4411';
 
   var nearestFeatures = {
       'type': 'featureCollection',
@@ -90,6 +90,10 @@ geocoderControl.on('select', function(res) {
 
   var nearestLayer = L.mapbox.featureLayer(nearestFeatures);
   layerGroup.addLayer(nearestLayer).addTo(map);
-  map.fitBounds(nearestLayer.getBounds());
+  map.fitBounds(nearestLayer.getBounds(), {padding: [100,100]});
+
+  nearestLayer.eachLayer(function(m) {
+    m.openPopup();
+  });
 
 });

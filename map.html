@@ -11,23 +11,26 @@
 	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
 	<style>
 	  body   { margin:0; padding:0; }
-	  #map   { position:absolute; top:80px; bottom:0; width:100%; }
+	  #map   { position:absolute; top:120px; bottom:0; width:100%; }
 	</style>
 
 </head>
 <body>
 
-<div style="background:#F8F8F8; height:100px">
-  <div style="height:50px;">
-    <h1 style="text-align:center; line-height: 80px; font-family: 'Montserrat', sans-serif; color:#424242; ">top 50 barbecue joints in texas</h1>
-  </div>
+<div class=frame, style='background:#dd4411; height:120px'>
+  <a href='http://www.texasmonthly.com/list/the-50-best-bbq-joints-in-the-world/'>
+    <img src='logo.png' height='100' style='padding-left: 10px; padding-top: 10px'/>
+  </a>
 </div>
 
-<div id='map'></div>
-<script src = "map.js"></script>
+<div style='width: 80%; float: right; '>
+  <div id='map'></div>
+  <script src = 'map.js'></script>
+</div>
 
 </body>
 </html>
