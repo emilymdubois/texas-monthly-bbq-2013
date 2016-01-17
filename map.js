@@ -1,8 +1,8 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoiZW1pbHltZHVib2lzIiwiYSI6ImNpajBmZ2p5azAwODN1YWx6ZjJ2MjFxYmQifQ.FbCG71iC6_bjFcDqolAo0Q';
 
 var map = L.mapbox.map('map', 'emilymdubois.okd0dh8p')
-    .setView([31.38, -99], 6);
-    map.scrollWheelZoom.disable();
+  .setView([31.38, -99], 6);
+  map.scrollWheelZoom.disable();
 
 var bbqJoints = {
   'type': 'FeatureCollection',
@@ -65,37 +65,31 @@ for (var i = 0; i < bbqJoints.features.length; i++) {
   bbqJoints.features[i].properties['marker-symbol'] = 'slaughterhouse';
 };
 
-var bbqJointsLayer = L.mapbox.featureLayer(bbqJoints)
-    .addTo(map);
+var layerGroup = L.layerGroup();
+var bbqJointsLayer = L.mapbox.featureLayer(bbqJoints);
+layerGroup.addLayer(bbqJointsLayer).addTo(map);
 
 var geocoderControl = L.mapbox.geocoderControl('mapbox.places', { autocomplete: true });
 geocoderControl.addTo(map);
 
 geocoderControl.on('select', function(res) {
 
-  map.eachLayer(function (layer) {
-    console.log(layer);
-  });
+  layerGroup.clearLayers().addLayer(bbqJointsLayer).addTo(map);
 
   var marker = res.feature;
   marker.properties['marker-symbol'] = 'star';
   marker.properties['marker-color'] = '#3bb2d0';
-  calculate(marker);
+
+  var nearest = turf.nearest(marker, bbqJoints);
+  nearest.properties['marker-color'] = '#fbb03b';
+
+  var nearestFeatures = {
+      'type': 'featureCollection',
+      'features': [marker, nearest]
+  };
+
+  var nearestLayer = L.mapbox.featureLayer(nearestFeatures);
+  layerGroup.addLayer(nearestLayer).addTo(map);
+  map.fitBounds(nearestLayer.getBounds());
 
 });
-
-function calculate(marker) {
-
-    var nearest = turf.nearest(marker, bbqJoints);
-    nearest.properties['marker-color'] = '#fbb03b';
-
-    var nearestFeatures = {
-        'type': 'featureCollection',
-        'features': [marker, nearest]
-    };
-    
-    var nearestLayer = L.mapbox.featureLayer(nearestFeatures).addTo(map);
-    console.log(nearestLayer);
-    map.fitBounds(nearestLayer.getBounds());
-
-};
