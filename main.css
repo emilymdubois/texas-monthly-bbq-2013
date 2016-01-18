@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css');
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+header {
+  background: #dd4411;
+  height: 150px;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+  font-size: 35pt;
+  text-align: left;
+  font-family: 'Montserrat';
+  color: #ffffff;
+}
+
+td.absorbing-column {
+  width: 100%;
+}
+
+aside {
+  float: left;
+  padding: 10px;
+  width: calc(30% - 20px);
+  height: calc(100% - 170px);
+  line-height: 20px;
+  font-family: 'Montserrat';
+}
+
+section {
+  float: right;
+  width: 70%;
+  height: calc(100% - 150px);
+}
+
+section.map {
+}

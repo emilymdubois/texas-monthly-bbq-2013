@@ -1,7 +1,7 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoiZW1pbHltZHVib2lzIiwiYSI6ImNpajBmZ2p5azAwODN1YWx6ZjJ2MjFxYmQifQ.FbCG71iC6_bjFcDqolAo0Q';
 
 var map = L.mapbox.map('map', 'emilymdubois.okd0dh8p')
-  .setView([31.38, -93], 5);
+  .setView([31.3, -100], 6);
 
 var bbqJoints = {
   'type': 'FeatureCollection',
