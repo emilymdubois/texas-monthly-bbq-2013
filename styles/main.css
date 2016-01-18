@@ -29,16 +29,25 @@ td.absorbing-column {
 
 aside {
   float: left;
-  padding: 10px;
-  width: calc(30% - 20px);
-  height: calc(100% - 170px);
-  line-height: 20px;
+  padding: 15px;
+  width: calc(25% - 30px);
+  height: calc(100% - 180px);
+  line-height: 33px;
   font-family: 'Montserrat';
+  color: #777777;
+}
+
+a:link {
+  color: #dd4411;
+}
+
+a:visited {
+  color: #bbbbbb;
 }
 
 section {
   float: right;
-  width: 70%;
+  width: 75%;
   height: calc(100% - 150px);
 }
 
