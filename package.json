@@ -1,0 +1,22 @@
+{
+  "name": "texas-monthly-bbq",
+  "version": "1.0.0",
+  "description": "a map of the Texas Monthly Top 50 BBQ Joints",
+  "main": "scripts/map.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "open html/map.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilymdubois/texas-monthly-bbq.git"
+  },
+  "author": "emilymdubois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilymdubois/texas-monthly-bbq/issues"
+  },
+  "homepage": "https://github.com/emilymdubois/texas-monthly-bbq"
+}
