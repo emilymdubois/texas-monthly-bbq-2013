@@ -8,7 +8,7 @@ html, body {
 
 header {
   background: #dd4411;
-  height: 150px;
+  height: 200px;
 }
 
 table {
@@ -17,7 +17,7 @@ table {
 
 th, td {
   padding: 15px;
-  font-size: 35pt;
+  font-size: 30pt;
   text-align: left;
   font-family: 'Montserrat';
   color: #ffffff;
@@ -28,27 +28,33 @@ td.absorbing-column {
 }
 
 aside {
+  background-image: url('../images/aside.jpg');
+  background-size: 100% 100%;
   float: left;
   padding: 15px;
-  width: calc(25% - 30px);
-  height: calc(100% - 180px);
-  line-height: 33px;
+  width: calc(30% - 30px);
+  height: calc(100% - 30px);
+  line-height: 25px;
+  font-size: 10pt;
+  overflow: auto;
   font-family: 'Montserrat';
-  color: #777777;
+  color: #ffffff;
 }
 
-a:link {
+a.aside:link, a.aside:visited {
+  color: #ffffff;
+}
+
+a.aside:hover {
   color: #dd4411;
 }
 
-a:visited {
-  color: #bbbbbb;
-}
+/*dd4411*/
 
 section {
   float: right;
-  width: 75%;
-  height: calc(100% - 150px);
+  width: 70%;
+  height: 100%;
 }
 
 section.map {

@@ -60,7 +60,7 @@ var bbqJoints = {
 };
 
 for (var i = 0; i < bbqJoints.features.length; i++) {
-  bbqJoints.features[i].properties['marker-color'] = '#f8bba6';
+  bbqJoints.features[i].properties['marker-color'] = '#f7ad94';
   bbqJoints.features[i].properties['marker-symbol'] = 'slaughterhouse';
 };
 
